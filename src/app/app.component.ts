@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { User } from './interfaces/user';
+import { UserServiceService } from './service/user-service.service';
 
 @Component({
   selector: 'my-app',
@@ -8,15 +10,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  private ApiUrl = 'http://localhost:8080/';
-  name = 'Angular';
+  username: string;
+  user: User | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private userService: UserServiceService
+  ) {}
 
   getUserByUsername() {
-    this.http
-      .get(this.ApiUrl + 'user' + '?username=' + 'swapnilan')
-      .subscribe((result) => console.log(result));
+    console.log(this.username);
+    this.userService
+      .getUserByUsername(this.username)
+      .subscribe((result) => (this.user = { ...result.body }));
+    console.log(this.user);
   }
 
   addUserDetails() {
@@ -29,14 +36,16 @@ export class AppComponent {
       password: 'Alice123',
     };
 
-    this.http
-      .post(this.ApiUrl + 'user/save', data)
-      .subscribe((result) => console.log(result));
+    this.userService.addUserDetails(data).subscribe((result) => {
+      if (result.body) alert('User Added');
+      else alert('Failed to add user');
+    });
   }
 
   deleteUserByUsername() {
-    this.http
-      .delete(this.ApiUrl + 'user/delete' + '?username=' + 'swapnilan')
-      .subscribe((result) => console.log(result));
+    this.userService.deleteUserByUsername(this.username).subscribe((result) => {
+      if (result.body) alert('User Deleted');
+      else alert('Failed to Delete user');
+    });
   }
 }
