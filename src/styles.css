@@ -1,1 +1,7 @@
 /* Add application styles & imports to this file! */
+
+html,
+body {
+  background-color: #1f2d48;
+  padding: 10px;
+}

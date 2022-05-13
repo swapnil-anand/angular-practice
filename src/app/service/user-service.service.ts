@@ -2,30 +2,28 @@ import { HttpResponse } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { URL } from '../app-constants/url-constants';
 import { User } from '../interfaces/user';
 
 @Injectable()
 export class UserServiceService {
-  private baseUrl = 'http://localhost:8080/';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getUserByUsername(username:string): Observable<HttpResponse<User>> {
-    return this.http.get<User>(this.baseUrl + 'user?username=' + username, {
-      observe: "response"
+  getUserByEmail(email: string): Observable<HttpResponse<User>> {
+    return this.http.get<User>(URL.GET_USER + email, {
+      observe: 'response',
     });
   }
 
-  addUserDetails(user:User): Observable<HttpResponse<boolean>> {
-    return this.http.post<boolean>(this.baseUrl + 'user/save', user, {
-      observe: "response"
+  addUserDetails(user: User): Observable<HttpResponse<boolean>> {
+    return this.http.post<boolean>(URL.ADD_USER, user, {
+      observe: 'response',
     });
   }
 
-  deleteUserByUsername(username:string): Observable<HttpResponse<boolean>>{
-    return this.http.delete<boolean>(this.baseUrl + 'user/delete?username=' + username, {
-      observe: "response"
+  deleteUserByUsername(email: string): Observable<HttpResponse<boolean>> {
+    return this.http.delete<boolean>(URL.DELETE_USER + email, {
+      observe: 'response',
     });
   }
-
 }

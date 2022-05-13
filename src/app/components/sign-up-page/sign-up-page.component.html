@@ -1,0 +1,22 @@
+<div class="sign-up">
+  <h2>Sign up for an account</h2>
+
+  <form>
+    <input
+      type="text"
+      placeholder="FULL NAME"
+      name="fullname"
+      [(ngModel)]="fullname"
+    />
+    <input type="email" placeholder="EMAIL" name="email" [(ngModel)]="email" />
+    <input
+      type="password"
+      placeholder="PASSWORD"
+      name="password"
+      [(ngModel)]="password"
+    />
+    <button (click)="addUserDetails()">SIGN UP</button>
+  </form>
+
+  <p>Already have an account? <a>Login</a></p>
+</div>

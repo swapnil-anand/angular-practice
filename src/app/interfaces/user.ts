@@ -1,8 +1,10 @@
 export interface User {
-  username: string;
-  name: string;
+  fullname: string;
   email: string;
-  language: string;
-  bio: string;
+  password: string;
+}
+
+export interface Login {
+  email: string;
   password: string;
 }

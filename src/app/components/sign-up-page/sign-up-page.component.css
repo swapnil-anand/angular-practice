@@ -1,0 +1,45 @@
+.sign-up {
+  text-align: center;
+}
+
+h2 {
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin: 10px 0px;
+  background: none;
+  border: 2px #fff solid;
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
+}
+
+form button {
+  background-color: #6e3fdb;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #8d66e9;
+  color: #fff;
+  transition: background-color 1s ease-in-out;
+}
+
+p {
+  color: #fff;
+}
+
+p a {
+  cursor: pointer;
+  text-decoration: underline;
+}
