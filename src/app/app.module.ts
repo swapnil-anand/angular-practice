@@ -7,10 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserServiceService } from './service/user-service.service';
 
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
-  declarations: [AppComponent, RoutingComponent],
+  declarations: [AppComponent, RoutingComponent, GalleryComponent],
   bootstrap: [AppComponent],
   providers: [UserServiceService],
 })
