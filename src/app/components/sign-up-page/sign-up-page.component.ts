@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { UserServiceService } from '../../service/user-service.service';
+import GoogleIcon from '@mui/icons-material/Google';
 
 @Component({
   selector: 'app-sign-up-page',

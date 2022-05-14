@@ -15,15 +15,11 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    let login = {
-      email: this.email,
-      password: this.password,
-    };
-
     this.service
       .getUserByEmailAndPassword(this.email, this.password)
       .subscribe((result) => {
-        if (result.body == 'Successful') alert('Login Successfull');
+        console.log(result);
+        if (result.body) alert('Login Successfull');
         else alert('Invalid Credentials');
       });
   }

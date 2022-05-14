@@ -13,10 +13,15 @@
       type="password"
       placeholder="PASSWORD"
       name="password"
+      required
       [(ngModel)]="password"
     />
-    <button (click)="addUserDetails()">SIGN UP</button>
+    <button (click)="addUserDetails()">Sign Up</button>
   </form>
-
-  <p>Already have an account? <a>Login</a></p>
+  <br />
+  <button class="google-button">Sign Up with Google</button>
+  <p>
+    Already have an account?
+    <a routerLink="../login">Login</a>
+  </p>
 </div>
