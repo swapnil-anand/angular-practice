@@ -12,19 +12,32 @@ export class SingUpPageComponent implements OnInit {
   password: string;
   email: string;
   user: User | undefined;
+  userProfile: File;
+  isProfilePictureUploaded: boolean;
+  isProfileCreated: boolean;
 
-  constructor(private userService: UserServiceService) {}
+  public form = {
+    file: FileList,
+  };
+
+  constructor(private userService: UserServiceService) {
+    this.form = {
+      file: null,
+    };
+  }
 
   addUserDetails() {
     const data = {
-      fullname: this.fullname,
+      fullName: this.fullname,
       email: this.email,
       password: this.password,
     };
-    this.userService.addUserDetails(data).subscribe((result) => {
-      if (result.body) alert('Successfully Signed Up.');
-      else alert('Failed to Sign up, try again.');
-    });
+    this.userService
+      .addUserDetails(data, this.form)
+      .subscribe((result) => (this.isProfileCreated = result.body));
+
+    if (this.isProfileCreated) alert('Profile Successfully Created!');
+    else alert('Error Occured while creating profil.');
   }
 
   ngOnInit() {}

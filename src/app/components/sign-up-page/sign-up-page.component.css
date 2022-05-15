@@ -28,6 +28,10 @@ form input:focus {
   outline: none;
 }
 
+form input[type='file'] {
+  border: none;
+}
+
 form button {
   background-color: #6e3fdb;
   color: #fff;

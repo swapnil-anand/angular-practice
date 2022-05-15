@@ -16,6 +16,7 @@
       required
       [(ngModel)]="password"
     />
+    <input #imageFile type="file" (change)="form.file = imageFile.files" />
     <button (click)="addUserDetails()">Sign Up</button>
   </form>
   <br />

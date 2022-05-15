@@ -21,9 +21,21 @@ export class UserServiceService {
     );
   }
 
-  addUserDetails(user: User): Observable<HttpResponse<boolean>> {
-    return this.http.post<boolean>(URL.ADD_USER, user, {
+  addUserDetails(user: User, form: any): Observable<HttpResponse<boolean>> {
+    let detailsResponse = this.http.post<boolean>(URL.ADD_USER, user, {
       observe: 'response',
     });
+    
+    this.addUserProfileImage(form, user.email).subscribe((result) =>
+      console.log(result)
+    );
+    return detailsResponse;
+  }
+
+  private addUserProfileImage(form: any, email: string) {
+    console.log(form);
+    let newForm = new FormData();
+    newForm.append('file', form.file[0]);
+    return this.http.post<boolean>(URL.PROFILE_IMAGE + email, newForm);
   }
 }
