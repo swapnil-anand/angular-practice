@@ -27,7 +27,8 @@ form input:focus {
 }
 
 form button {
-  background-color: #6e3fdb;
+  font-weight: bold;
+  background-color: #084dd8;
   color: #fff;
   padding: 10px;
   border: none;
@@ -37,9 +38,8 @@ form button {
 }
 
 form button:hover {
-  background-color: #8d66e9;
-  color: #fff;
-  transition: background-color 1s ease-in-out;
+  background-color: #5087f7;
+  transition: background-color 0.35s ease-in-out;
 }
 
 p {
@@ -67,6 +67,6 @@ p a {
   background-color: #fff;
   color: #000;
   font-weight: bold;
-  transition: background-color 1s ease-in, color 1s ease-in,
-    font-weight 1s ease-in;
+  transition: background-color 0.35s ease-in, color 0.35s ease-in,
+    font-weight 0.35s ease-in;
 }
