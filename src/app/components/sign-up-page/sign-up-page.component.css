@@ -32,6 +32,21 @@ form input[type='file'] {
   border: none;
 }
 
+form input[type='file']::-webkit-file-upload-button {
+  background: none;
+  font-weight: bold;
+  padding: 10px;
+  border: 2px #fff solid;
+  color: #fff;
+}
+
+form input[type='file']::-webkit-file-upload-button:hover {
+  color: #000;
+  background-color: #fff;
+  cursor: pointer;
+  transition: color 0.5s ease-in, background-color 0.5s ease-in;
+}
+
 form button {
   background-color: #6e3fdb;
   color: #fff;

@@ -13,7 +13,6 @@ export class SingUpPageComponent implements OnInit {
   email: string;
   user: User | undefined;
   userProfile: File;
-  isProfilePictureUploaded: boolean;
   isProfileCreated: boolean;
 
   public form = {
@@ -28,10 +27,11 @@ export class SingUpPageComponent implements OnInit {
 
   addUserDetails() {
     const data = {
-      fullName: this.fullname,
+      fullname: this.fullname,
       email: this.email,
       password: this.password,
     };
+
     this.userService
       .addUserDetails(data, this.form)
       .subscribe((result) => (this.isProfileCreated = result.body));
